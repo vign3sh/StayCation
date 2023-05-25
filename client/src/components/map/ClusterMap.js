@@ -24,6 +24,10 @@ const ClusterMap = () => {
   const [bounds, setBounds] = useState([-180, -85, 180, 85]);
   const [zoom, setZoom] = useState(0);
   const [popupInfo, setPopupInfo] = useState(null);
+  var mq = window.matchMedia( "(min-width: 600px)" );
+  const zoomLevel = mq.matches ? 1.5 : 7;
+  const lat_val = mq.matches ? 2.0820 : 40.7128;
+  const lon_val = mq.matches ?  8.6753: -74.0060;
 
   useEffect(() => {
     getRooms(dispatch);
@@ -64,7 +68,7 @@ const ClusterMap = () => {
   }, [mapRef?.current]);
   return (
     <ReactMapGL
-      initialViewState={{ latitude: 2.0820, longitude: 8.6753, zoom: 1.5}}
+      initialViewState={{ latitude: lat_val, longitude: lon_val, zoom: zoomLevel}}
       mapboxAccessToken={process.env.REACT_APP_MAP_TOKEN}
       mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
       ref={mapRef}
