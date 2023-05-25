@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useValue } from '../../context/ContextProvider';
 import { getRooms } from '../../actions/room';
-import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
+import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 import Supercluster from 'supercluster';
 import './cluster.css';
 import { Avatar, Paper, Tooltip } from '@mui/material';
 import GeocoderInput from '../sidebar/GeocoderInput';
+import PopupRoom from './PopupRoom';
 
 const supercluster = new Supercluster({
   radius: 75,
@@ -22,6 +23,7 @@ const ClusterMap = () => {
   const [clusters, setClusters] = useState([]);
   const [bounds, setBounds] = useState([-180, -85, 180, 85]);
   const [zoom, setZoom] = useState(0);
+  const [popupInfo, setPopupInfo] = useState(null);
 
   useEffect(() => {
     getRooms(dispatch);
@@ -64,7 +66,7 @@ const ClusterMap = () => {
     <ReactMapGL
       initialViewState={{ latitude: 2.0820, longitude: 8.6753, zoom: 1.5}}
       mapboxAccessToken={process.env.REACT_APP_MAP_TOKEN}
-      mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
+      mapStyle="mapbox://styles/mapbox/streets-v11"
       ref={mapRef}
       
       onZoomEnd={(e) => setZoom(Math.round(e.viewState.zoom))}
@@ -116,12 +118,25 @@ const ClusterMap = () => {
                 src={cluster.properties.uPhoto}
                 component={Paper}
                 elevation={2}
+                onClick={() => setPopupInfo(cluster.properties)}
               />
             </Tooltip>
           </Marker>
         );
       })}
       <GeocoderInput />
+      {popupInfo && (
+        <Popup
+          longitude={popupInfo.lng}
+          latitude={popupInfo.lat}
+          maxWidth="auto"
+          closeOnClick={false}
+          focusAfterOpen={false}
+          onClose={() => setPopupInfo(null)}
+        >
+          <PopupRoom {...{ popupInfo }} />
+        </Popup>
+      )}
     </ReactMapGL>
   );
 };

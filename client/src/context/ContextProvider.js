@@ -21,6 +21,7 @@ const initialState = {
   roomFilter: 1,
   addressFilter: null,
   filteredRooms: [],
+  room: null,
 };
 
 const Context = createContext(initialState);
