@@ -1,12 +1,31 @@
-.cluster-marker {
-  color: #fff;
-  background: #1978c8;
-  border-radius: 50%;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 751px) {
+  .cluster-marker {
+    color: #fff;
+    background: #1978c8;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
+
+@media (max-width: 750px) {
+  .cluster-marker {
+    color: #fff;
+    background: #1978c8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-small;
+    min-width: 40px;
+    min-height: 40px;
+    
+  }
+  
+}
+
 .mapboxgl-popup-close-button {
   font-size: 2rem;
   color: white;
