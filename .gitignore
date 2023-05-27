@@ -26,6 +26,11 @@ client/yarn-error.log*
 
 client/commands.txt
 
+# New Login Page 
+client/src/components/user/css
+client/src/components/user/fonts
+client/src/components/user/Login1.js
+
 
 # Server
 server/node_modules

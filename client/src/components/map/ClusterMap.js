@@ -41,6 +41,7 @@ const ClusterMap = () => {
         roomId: room._id,
         price: room.price,
         title: room.title,
+        no_rooms: room.no_rooms,
         description: room.description,
         lng: room.lng,
         lat: room.lat,
