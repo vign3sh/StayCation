@@ -6,6 +6,7 @@ const roomSchema = mongoose.Schema(
     lat: { type: Number, required: true },
     price: { type: Number, min: 0, max: 50, default: 0 },
     no_rooms: { type: Number, min: 0, max: 15, default: 1 },
+    contact_info: { type: String, required: true },
     title: { type: String, required: true, minLength: 5, maxLength: 150 },
     description: {
       type: String,

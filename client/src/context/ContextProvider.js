@@ -14,7 +14,7 @@ const initialState = {
   alert: { open: false, severity: 'info', message: '' },
   profile: { open: false, file: null, photoURL: '' },
   images: [],
-  details: { title: '', description: '', price: 0, no_rooms:1},
+  details: { title: '', description: '', price: 0, no_rooms:1, contact_info:''},
   location: { lng: 0, lat: 0 },
   rooms: [],
   priceFilter: 50,

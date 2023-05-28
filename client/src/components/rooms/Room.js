@@ -175,6 +175,27 @@ const Room = () => {
             <Typography component="span">{room?.no_rooms}</Typography>
             </Box>
           </Stack>
+
+          <Stack
+          direction="row"
+          sx={{
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+          }}
+          >
+            <Box>
+            <Typography variant="h6" component="span">
+              {'Owner Name: '}
+            </Typography>
+            <Typography component="span">{room?.uName}</Typography>
+            </Box>
+            <Box>
+            <Typography variant="h6" component="span">
+              {'Contact Info: '}
+            </Typography>
+            <Typography component="span">{room?.contact_info}</Typography>
+            </Box>
+          </Stack>
         </Stack>
       </Container>
     </Dialog>

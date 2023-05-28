@@ -10,11 +10,12 @@ import {
 import { useState } from 'react';
 import { useValue } from '../../../context/ContextProvider';
 import InfoField from './InfoField';
+import { MuiTelInput } from 'mui-tel-input'
 
 const AddDetails = () => {
   const {
     state: {
-      details: { title, description, price, no_rooms },
+      details: { title, description, price, no_rooms, contact_info },
     },
     dispatch,
   } = useValue();
@@ -33,6 +34,10 @@ const AddDetails = () => {
   };
   const handleNoRoomChange = (e) => {
     dispatch({ type: 'UPDATE_DETAILS', payload: { no_rooms: e.target.value } });
+  };
+  const handleContactInfoChange = (contact_info) => {
+    dispatch({ type: 'UPDATE_DETAILS', payload: { contact_info: contact_info } });
+    console.log(contact_info)
   };
   return (
     <Stack
@@ -80,6 +85,12 @@ const AddDetails = () => {
         minLength={10}
         optionalProps={{ multiline: true, rows: 4 }}
       />
+      <Stack
+          direction="row"
+          sx={{
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+          }}>
       <TextField
               sx={{ width: '8.5ch !important' }}              
               inputProps={{ type: 'number', min: 1, max: 5, style: { textAlign: 'center' }}}
@@ -89,7 +100,8 @@ const AddDetails = () => {
               value={no_rooms}
               onChange={handleNoRoomChange}
       />
-      
+      <MuiTelInput required sx={{ width: '25ch !important' }} label="Phone" value={contact_info} onChange={handleContactInfoChange} />
+    </Stack>
 
     </Stack>
   );

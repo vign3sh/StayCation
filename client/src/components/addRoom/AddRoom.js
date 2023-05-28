@@ -53,7 +53,7 @@ const AddRoom = ({ setPage }) => {
     }
   }, [images]);
   useEffect(() => {
-    if (details.title.length > 4 && details.description.length > 9) {
+    if (details.title.length > 4 && details.description.length > 9 && details.contact_info.length > 9) {
       if (!steps[1].completed) setComplete(1, true);
     } else {
       if (steps[1].completed) setComplete(1, false);
@@ -86,6 +86,7 @@ const AddRoom = ({ setPage }) => {
       lat: location.lat,
       price: details.price,
       no_rooms: details.no_rooms,
+      contact_info: details.contact_info,
       title: details.title,
       description: details.description,
       images,

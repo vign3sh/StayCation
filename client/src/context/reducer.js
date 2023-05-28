@@ -35,7 +35,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         images: [],
-        details: { title: '', description: '', price: 0, no_rooms: 1},
+        details: { title: '', description: '', price: 0, no_rooms: 1, contact_info:''},
         location: { lng: 0, lat: 0 },
       };
 
