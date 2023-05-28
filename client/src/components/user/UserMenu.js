@@ -4,7 +4,7 @@ import React from 'react';
 import { useValue } from '../../context/ContextProvider';
 import useCheckToken from '../../hooks/useCheckToken';
 import Profile from './Profile';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
 const UserMenu = ({ anchorUserMenu, setAnchorUserMenu }) => {
   useCheckToken();
   const {
@@ -42,6 +42,13 @@ const UserMenu = ({ anchorUserMenu, setAnchorUserMenu }) => {
             Profile
           </MenuItem>
         )}
+        <MenuItem
+          >
+            <ListItemIcon>
+              <DashboardIcon fontSize="small" />
+            </ListItemIcon>
+            Dashboard
+          </MenuItem>
         <MenuItem
           onClick={() => dispatch({ type: 'UPDATE_USER', payload: null })}
         >
