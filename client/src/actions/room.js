@@ -27,6 +27,8 @@ export const createRoom = async (room, currentUser, dispatch, setPage) => {
 };
 
 export const getRooms = async (dispatch) => {
+  // test to check loading screen on initial load from render
+  //await new Promise(resolve => setTimeout(resolve, 10000));
   dispatch({ type: 'START_LOADING' });
   const result = await fetchData({ url, method: 'GET' }, dispatch);
   if (result) {
@@ -35,6 +37,5 @@ export const getRooms = async (dispatch) => {
   dispatch({ type: 'END_LOADING' });
   dispatch({ type: 'END_INITIAL_LOADING' });
 };
-
 
 

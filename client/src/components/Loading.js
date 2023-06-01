@@ -10,7 +10,7 @@ const Loading = () => {
   return (
     <>
     
-    { initialLoading == true ? ( 
+    { initialLoading == true ? (
     <>
     <Backdrop  open={loading} sx={{ background:'#fff', zIndex: (theme) => theme.zIndex.modal + 1}}><LoadingScreen/> </Backdrop></>) : (
     <><Backdrop open={loading} sx={{ zIndex: (theme) => theme.zIndex.modal + 1 }}><CircularProgress sx={{ color: 'white' }} /></Backdrop> </>)
