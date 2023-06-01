@@ -5,7 +5,7 @@ const LoadingScreen = () => {
         <>
         <div className="container">
         <div className="phone-only">
-        <h1>Please wait while the server is starting</h1>
+        <h1>Please wait, the free server takes about 15 seconds on cold restart</h1>
         </div>
             <img src={logo} alt="loading..." />
         </div>
