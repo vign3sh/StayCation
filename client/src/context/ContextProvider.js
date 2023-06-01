@@ -11,6 +11,7 @@ const initialState = {
   currentUser: null,
   openLogin: false,
   loading: false,
+  initialLoading: true,
   alert: { open: false, severity: 'info', message: '' },
   profile: { open: false, file: null, photoURL: '' },
   images: [],

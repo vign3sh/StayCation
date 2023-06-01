@@ -8,27 +8,16 @@ import Login from './components/user/Login';
 import { useEffect, useState } from 'react';
 import LoadingScreen from './loading/LoadingScreen'
 const App = () => {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 18000)
-  }, [])
 
   return (
     <>
-    {loading === false ? (
-      <>
       <Loading />
       <Notification />
       <Login />
       <NavBar />
       <BottomNav />
       <Room />
-      </>
-      ) : (
-        <LoadingScreen />
-      )}
-  </>
+    </>
 );
 }
 export default App;

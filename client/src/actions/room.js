@@ -33,23 +33,8 @@ export const getRooms = async (dispatch) => {
     dispatch({ type: 'UPDATE_ROOMS', payload: result });
   }
   dispatch({ type: 'END_LOADING' });
+  dispatch({ type: 'END_INITIAL_LOADING' });
 };
 
-export const loadServer = async () => {
-  const token = '';
-  const method = 'POST';
-  const url = process.env.REACT_APP_SERVER_URL + '/loading';
-  const headers = { 'Content-Type': 'application/json' };
-  const body = {};
-try {
-  const response = await fetch(url + '/', { method, headers, ...body });
-  const data = await response.json();
-  console.log(data);
 
-}
-catch (error) {
-  console.log(error);
-  return null;
-}
-}
 
