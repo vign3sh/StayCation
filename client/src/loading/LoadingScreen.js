@@ -1,6 +1,8 @@
 import logo from './loading.gif'
 import './loading.css';
+import { loadServer } from '../actions/room';
 const LoadingScreen = () => {
+    loadServer();
     return (
         <>
         <div className="container">
